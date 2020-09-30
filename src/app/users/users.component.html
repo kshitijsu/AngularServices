@@ -1,0 +1,43 @@
+<div class="container" style="padding: 10px">
+  <h3 class="text-center">User Details</h3>
+  <div class="row text-center">
+    <p>{{ name }} -></p>
+    <p>{{ id }} -></p>
+    <p>{{ city }}</p>
+  </div>
+  <div class="container">
+    <h3 class="text-center">API Data</h3>
+    <div *ngIf="data.length > 0; else nousers">
+      <table class="table table-bordered">
+        <tr class="bg-info">
+          <th>Id</th>
+          <th>Title</th>
+          <th>User Id</th>
+        </tr>
+        <tr *ngFor="let item of data">
+          <td>{{ item.id }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.userId }}</td>
+        </tr>
+      </table>
+    </div>
+    <ng-template #nousers>
+      <h4 class="alert alert-danger text-center">{{ errorMessage }}</h4>
+    </ng-template>
+  </div>
+  <!-- <div class="container">
+    <h1>Web API Data</h1>
+    <table class="table table-bordered bg-info">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>City</th>
+      </tr>
+      <tr *ngFor="let user of allUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.city }}</td>
+      </tr>
+    </table>
+  </div> -->
+</div>
